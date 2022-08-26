@@ -50,7 +50,7 @@ class Casino
 
 
 def show_menu
-  
+  begins
      puts 'Which Game Do You Want To Play?'
      puts '1. Slots'
      puts '2. High / Low'
@@ -60,17 +60,19 @@ def show_menu
      raise "Bad Input" unless response > 0 && response < 5
      case response
      when 1
-     #todo slots
+      #todo slots
      when 2
-     #high / low
+      HighLow.new(@player)
      when 3
-     puts "you have $#{@player, money}"
+      puts "you have $#{@player, money}"
      when 4
-     puts "Have a nice day!"
-     exit
+      puts "Have a nice day!"
+      exit
      else
-
-     rescue StandardError => e
+      raise
+     end 
+     show_menu
+    rescue StandardError => e
      puts e
      retry
   end
