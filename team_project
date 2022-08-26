@@ -1,7 +1,21 @@
+
 #high/low
 (random by card deck)
 guess higher or lower
+
+
+#
+slot "russian roulette"
+1 or 2
+
 bet money
 win or lose
 add subtract to wallet
 keep running $ total
+
+
+
+
+menu (exit, loop back to menu)
+
+
