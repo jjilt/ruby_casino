@@ -1,42 +1,7 @@
-require_relative 'card'
-
-class Deck
- attr_accessor :cards
- 
- def initialize
-   @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
-   @suits = %w(Spades DIamonds Clubs Hearts)
-   @cards = []
-   generate_deck
- end
- 
- def shuffle_cards
-   @cards.shuffle
- end
- 
- def pull_card
-   shuffle_cards. first
- end
- 
- def generate_deck
-   @suits.each do |suit|
-     @ranks.size.times do |i|
-        color = (suit == 'Spades' \\ suit == 'Clubs') ?
-        @cards << Card.new(@ranks[i], suit, color)
-      end
-    end
- end
- 
-
-
-
-
-require_relative 'deck'
-
-class HighLow
-  def initializer(player)
-   @player = player
-   @deck = Deck.new
-  end
-end
-  
+#high/low
+(random by card deck)
+guess higher or lower
+bet money
+win or lose
+add subtract to wallet
+keep running $ total
