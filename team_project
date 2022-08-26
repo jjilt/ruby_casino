@@ -1,82 +1,44 @@
 
-#slots game
-
-class Dice
- def initialize
-   roll
- end
- 
- def roll
-   @die1 = 1 + rand(6)
-   @die2 = 1 + rand(6) 
- end
- 
- def show_dice
-   print "Die1: ", @die1, " Die2:", @die2
- end
- 
- def show_sum
-   print "Sum of dice is ", @die1 + @die2, ".\n"
- end 
+class PLayer
+ attr_accessor :name, :money
+  def initialize
+   puts "What is your name?"
+   @name = gets.strip
+   @money = 100.0
+  end
 end
-
-
-
-
-#high or low game
-
-
-class Card
- # Getter and Setter methods for rank, suit and color
- attr_accessor :rank, :suit, :color
- # Gets called when you call the new method to create an instance
- # card = Card.new('10', 'Spades', 'Black')
- def initialize(rank, suit, color)
-   @rank = rank
-   @suit = suit
-   @color = color
- end
-end
-
-#gets the value, = integer, select greater/less than value to equal 
-
-require_relative 'player'
 
 class Casino
- def initialize
- @palyer = Player.new
- show_menu
- end
-
-
-def show_menu
-  begins
-     puts 'Which Game Do You Want To Play?'
-     puts '1. Slots'
-     puts '2. High / Low'
-     puts "3. Check Wallet'
-     puts '4. Exit'
-     response = gets.strip.to_i
-     raise "Bad Input" unless response > 0 && response < 5
-     case response
-     when 1
-      #todo slots
-     when 2
-      HighLow.new(@player)
-     when 3
-      puts "you have $#{@player, money}"
-     when 4
-      puts "Have a nice day!"
-      exit
-     else
-      raise
-     end 
-     show_menu
-    rescue StandardError => e
-     puts e
-     retry
+  def initialize
+    @player = Player.new
+    show_menu
+  end
+  
+  def show_menu
+   begin
+    puts 'Would You Like to Play a Game?'
+    puts '1. Slots'
+    puts '2. High / Low'
+    puts '3. Check Wallet'
+    puts '4. Exit'
+    response = gets.strip.to_i
+    raise "Bad Input" unless response > 0 && response < 5
+    case response 
+    when 1
+    # todo: slots
+    when 2
+    # todo: highlow
+    when 3
+     puts "You have $#{@player.money}"
+    when 4
+     puts "Have a nice day"
+     exit
+   rescue StandardError => e
+    puts e
+    retry
   end
  end
 end
 
-  
+
+Casino.new
