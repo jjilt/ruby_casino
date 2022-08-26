@@ -1,82 +1,42 @@
+require_relative 'card'
 
-#slots game
-
-class Dice
+class Deck
+ attr_accessor :cards
+ 
  def initialize
-   roll
+   @ranks = %w(A 2 3 4 5 6 7 8 9 10 J Q K)
+   @suits = %w(Spades DIamonds Clubs Hearts)
+   @cards = []
+   generate_deck
  end
  
- def roll
-   @die1 = 1 + rand(6)
-   @die2 = 1 + rand(6) 
+ def shuffle_cards
+   @cards.shuffle
  end
  
- def show_dice
-   print "Die1: ", @die1, " Die2:", @die2
+ def pull_card
+   shuffle_cards. first
  end
  
- def show_sum
-   print "Sum of dice is ", @die1 + @die2, ".\n"
- end 
-end
-
-
-
-
-#high or low game
-
-
-class Card
- # Getter and Setter methods for rank, suit and color
- attr_accessor :rank, :suit, :color
- # Gets called when you call the new method to create an instance
- # card = Card.new('10', 'Spades', 'Black')
- def initialize(rank, suit, color)
-   @rank = rank
-   @suit = suit
-   @color = color
+ def generate_deck
+   @suits.each do |suit|
+     @ranks.size.times do |i|
+        color = (suit == 'Spades' \\ suit == 'Clubs') ?
+        @cards << Card.new(@ranks[i], suit, color)
+      end
+    end
  end
-end
-
-#gets the value, = integer, select greater/less than value to equal 
-
-require_relative 'player'
-
-class Casino
- def initialize
- @palyer = Player.new
- show_menu
- end
+ 
 
 
-def show_menu
-  begins
-     puts 'Which Game Do You Want To Play?'
-     puts '1. Slots'
-     puts '2. High / Low'
-     puts "3. Check Wallet'
-     puts '4. Exit'
-     response = gets.strip.to_i
-     raise "Bad Input" unless response > 0 && response < 5
-     case response
-     when 1
-      #todo slots
-     when 2
-      HighLow.new(@player)
-     when 3
-      puts "you have $#{@player, money}"
-     when 4
-      puts "Have a nice day!"
-      exit
-     else
-      raise
-     end 
-     show_menu
-    rescue StandardError => e
-     puts e
-     retry
+
+
+require_relative 'deck'
+
+class HighLow
+  def initializer(player)
+   @player = player
+   @deck = Deck.new
   end
- end
 end
-
   
