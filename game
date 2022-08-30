@@ -1,0 +1,76 @@
+
+
+@wallet = 500
+
+
+def menu
+  puts "Welcome to Higher or Lower!"
+  puts "Chips: #{@wallet}"
+  puts "1) Let's play!"
+  puts "2) How to play"
+  puts "3) Exit"
+
+  user_input = gets.strip.to_i
+  if user_input == 1
+    hi_low_gm
+  elsif user_input == 2
+    how_to
+  elsif user_input == 3
+    puts "Thanks for playing!"
+    exit 
+  end
+  menu
+end
+
+
+def hi_low_gm
+    puts "What's your bet?"
+      bet = gets.strip.to_i
+    
+      first_draw = (1 + rand(12))
+    
+      second_draw = (1 + rand(12))
+      
+    puts "The first card is a #{first_draw}"
+    puts "Will the next card be higher of lower?"
+    puts "1) Higher"
+    puts "2) Lower"
+    guess_input = gets.strip.to_i
+
+    if guess_input == 1 && first_draw <= second_draw
+        puts "The next card is a...... #{second_draw}"
+        puts "You Win!"
+        @wallet += bet
+    elsif guess_input == 1 && first_draw >= second_draw
+        puts "The next card is a...... #{second_draw}"
+        puts "Sorry, better luck next time."
+        @wallet -= bet
+    elsif guest_input == 1 && first_draw == second_draw
+      puts "The next card is a ......"
+    elsif guess_input == 2 && first_draw >= second_draw
+        puts "The next card is a...... #{second_draw}"
+        puts "You Win!"
+        @wallet += bet
+    elsif guess_input == 2 && first_draw <= second_draw
+        puts "The next card is a...... #{second_draw}"
+        puts "Sorry, better luck next time."
+        @wallet -= bet
+    else
+      puts "Please select a listed option"
+    end
+end
+menu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
