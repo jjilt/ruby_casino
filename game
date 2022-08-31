@@ -1,6 +1,21 @@
+########JOY BEGIN
+
+########JOY END
 
 
-@wallet = 500
+
+########LEO BEGIN
+
+########LEO END
+
+########KEVIN BEGIN
+
+########KEVIN END
+
+
+
+########ERIC BEGIN
+wallet = 500
 
 
 def menu
@@ -22,6 +37,24 @@ def menu
   menu
 end
 
+def how_to
+  puts 'Welcome to "Higher or Lower"!'
+  puts 'The rules of play are simple. When you begin the game'
+  puts 'you will be asked to place your bet. After typing in the number'
+  puts 'of chips you want to bet, hit enter.'
+  puts 'You will then be presented with a card number.'
+  puts 'You will then select if the next card will have a higher or'
+  puts "lower number. If you guess correctly, then you get your bet"
+  puts "added to your total chips. If you guess wrong, your bet gets"
+  puts "deducted."
+  puts "So what do you think? Is lady Luck on your side?"
+  puts "PRESS 1 AND ENTER TO RETURN TO THE MENU"
+  
+  return_m = gets.strip.to_i
+  if return_m = 1
+    menu
+  end
+end
 
 def hi_low_gm
     puts "What's your bet?"
@@ -45,8 +78,6 @@ def hi_low_gm
         puts "The next card is a...... #{second_draw}"
         puts "Sorry, better luck next time."
         @wallet -= bet
-    elsif guest_input == 1 && first_draw == second_draw
-      puts "The next card is a ......"
     elsif guess_input == 2 && first_draw >= second_draw
         puts "The next card is a...... #{second_draw}"
         puts "You Win!"
@@ -60,14 +91,7 @@ def hi_low_gm
     end
 end
 menu
-
-
-
-
-
-
-
-
+########ERIC END
 
 
 
